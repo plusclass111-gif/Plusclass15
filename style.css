@@ -1,0 +1,132 @@
+/* ====================================================
+   Hessa PLUS - Final Style Sheet (Banner & Plus Adjusted)
+==================================================== */
+* { box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+
+body {
+    margin:0;
+    background:#F2E1E1;
+    color:#63161B;
+    border: 10px solid #B0303B;
+    padding:10px;
+}
+
+/* ---------------- Header ---------------- */
+.header { 
+    text-align:center; 
+    padding-top:20px;  
+    position:relative; 
+}
+
+/* البانر العلوي */
+.logo-right img {
+    position:absolute;
+    top:10px;                
+    right:0;
+    width:100%;              
+    max-height:220px;        
+    object-fit:contain;
+    z-index:0;
+}
+
+/* صورة حصة PLUS */
+.title-center img {
+    width:320px;
+    margin-top:10px;        
+    animation:pulse 3s infinite;
+    position:relative;
+    z-index:1;
+}
+
+/* اسم المدرسة */
+.school-name { 
+    font-size:16px; 
+    margin-top:10px;        
+    font-weight:600; 
+    z-index:1; 
+}
+
+.hamburger {
+    display:none; 
+    position:absolute; 
+    top:25px; 
+    left:20px; 
+    font-size:24px; 
+    background:none; 
+    border:none; 
+    color:#63161B; 
+    cursor:pointer;
+}
+
+@keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
+
+.sidebar {
+width:200px; background:#63161B; position:fixed; top:0; bottom:0; padding-top:180px; z-index:2; transition:0.3s;
+}
+
+.sidebar button { width:100%; padding:15px; border:none; background:none; color:#F2E1E1; cursor:pointer; font-size:16px;}
+.sidebar button:hover {background:#B0303B;}
+
+.content {margin-right:200px; padding:30px;}
+.section { display:none; }
+.section.active { display:block; }
+
+.card { background:#fff; color:#63161B; padding:25px; border-radius:12px; margin-top:15px; border:2px solid #B0303B; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; }
+.btn-main { background:#63161B; border:none; padding:12px; color:#F2E1E1; border-radius:10px; cursor:pointer; margin-top:15px; font-weight:bold; }
+.btn-main:hover { background:#B0303B; }
+
+.schedule-box-horizontal {
+display:flex; gap:10px; justify-content:center; margin-top:15px;
+}
+
+.schedule-box-horizontal div {
+padding:15px; border-radius:12px; font-weight:bold; text-align:center; min-width:90px;
+border:1px solid #B0303B;
+}
+
+.available { background:#FDECEC; color:#63161B; }
+.booked { background:#F8D0D0; color:#800000; }
+
+.animated-text { animation:glow 2s infinite alternate; text-align:center; font-size:22px;}
+@keyframes glow { from{color:#63161B;} to{color:#B0303B;} }
+
+.footer { text-align:center; padding:15px; background:#63161B; color:#F2E1E1; }
+
+.booking-card select, .booking-card input { padding:8px; border-radius:8px; border:1px solid #63161B; width:100%; }
+
+.teacher-action { display:flex; gap:10px; margin-top:10px; align-items:center; }
+#teacherName { flex:1; padding:8px; border-radius:8px; border:1px solid #63161B; }
+#teachersListSimple { margin-top:10px; }
+#teachersListSimple p { margin:3px 0; }
+
+@media screen and (max-width:768px){
+    /* بانر المدرسة */
+    .logo-right img{
+        position:static;
+        width:90%;          /* أكبر كثير لتغطية العرض */
+        max-height:200px;   /* ارتفاع مناسب */
+        margin:0 auto;
+        display:block;
+    }
+
+    /* صورة حصة PLUS */
+    .title-center img{
+        width:70%;          /* أكبر للعرض الجوال */
+        max-width:260px;
+        margin:10px auto 0 auto; /* أقل فراغ فوق */
+        display:block;
+    }
+
+    .school-name{
+        font-size:16px;     /* أكبر شوي */
+        margin-top:5px;     /* أقل فراغ */
+    }
+
+    .sidebar{width:100%; height:auto; position:relative; padding-top:0; display:none;}
+    .sidebar.active{display:block;}
+    .content{margin:0; padding:15px;}
+    .grid{grid-template-columns:1fr;}
+    .hamburger{display:block;}
+    .schedule-box-horizontal{flex-wrap:wrap;}
+}
